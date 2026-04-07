@@ -1,3 +1,5 @@
+import logoAzul from "@/assets/logo-azul.png";
+
 const Agenda = () => {
   return (
     <section id="agenda" className="py-20 bg-muted/30">
@@ -11,20 +13,11 @@ const Agenda = () => {
 
         <div className="mt-12 max-w-3xl mx-auto bg-background rounded-2xl shadow-lg border overflow-hidden">
           <div className="grid md:grid-cols-2">
-            {/* Left info */}
             <div className="p-8 text-left border-r">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold">⚡</span>
-                </div>
-                <div>
-                  <p className="text-foreground font-extrabold">EN FORMA</p>
-                  <p className="text-primary text-xs tracking-[0.3em] font-semibold">SEGUROS</p>
-                </div>
-              </div>
+              <img src={logoAzul} alt="En Forma Seguros" className="h-10 mb-6" />
 
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-sm">👩‍💼</div>
+                <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-sm font-bold text-foreground">O</div>
                 <span className="text-muted-foreground text-sm">Ogui Magaña</span>
               </div>
               <h3 className="text-xl font-bold text-foreground mt-2">Asesoría con Ogui</h3>
@@ -39,7 +32,6 @@ const Agenda = () => {
               </p>
             </div>
 
-            {/* Right calendar placeholder */}
             <div className="p-8">
               <h3 className="font-bold text-foreground mb-4">Selecciona una fecha y hora</h3>
               <div className="bg-muted rounded-xl p-4 h-64 flex items-center justify-center">

@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
+import oguiSpeaker from "@/assets/ogui-speaker.png";
 
 const Speaker = () => {
   return (
     <section className="bg-secondary py-20 relative overflow-hidden">
-      {/* Green top accent line */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-primary" />
 
       <div className="container mx-auto px-4">
@@ -23,11 +23,8 @@ const Speaker = () => {
             </Button>
           </div>
 
-          {/* Image placeholder */}
           <div className="flex justify-center">
-            <div className="w-64 h-72 md:w-72 md:h-80 rounded-2xl bg-secondary-foreground/10 flex items-center justify-center">
-              <span className="text-6xl">🙏</span>
-            </div>
+            <img src={oguiSpeaker} alt="Ogui Magaña - Conferencista" className="w-64 h-72 md:w-72 md:h-80 object-contain" />
           </div>
         </div>
       </div>

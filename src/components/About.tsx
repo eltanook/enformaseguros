@@ -1,4 +1,6 @@
 import { CheckCircle2 } from "lucide-react";
+import oguiCoach from "@/assets/ogui-coach.png";
+import logoVertical from "@/assets/logo-vertical.png";
 
 const bullets = [
   "Representamos a más de 200 clientes en México.",
@@ -11,18 +13,15 @@ const About = () => {
     <section id="nosotros" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Image placeholder */}
           <div className="relative flex justify-center">
-            <div className="w-72 h-80 md:w-80 md:h-96 rounded-2xl border-4 border-primary bg-muted flex items-center justify-center relative">
-              <span className="text-6xl">👩‍💼</span>
-              {/* Logo overlay */}
-              <div className="absolute -top-6 -right-6 w-16 h-16 rounded-full bg-foreground flex items-center justify-center">
-                <span className="text-primary-foreground text-2xl">⚡</span>
-              </div>
+            <div className="w-72 h-80 md:w-80 md:h-[420px] rounded-2xl border-4 border-primary bg-muted overflow-hidden relative">
+              <img src={oguiCoach} alt="Ogui Magaña" className="w-full h-full object-cover object-top" />
+            </div>
+            <div className="absolute -top-4 -right-2 md:right-8 w-20 h-20">
+              <img src={logoVertical} alt="En Forma Seguros" className="w-full h-full object-contain" />
             </div>
           </div>
 
-          {/* Text */}
           <div>
             <h2 className="text-3xl md:text-4xl font-extrabold text-foreground italic">
               Hola, Soy Tu Coach
