@@ -6,31 +6,31 @@ const Footer = () => {
   return (
     <footer className="bg-dark-bg text-muted-foreground pt-16 pb-8">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-10">
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
           <div>
-            <img src={logoVerde} alt="En Forma Seguros" className="h-10 mb-4" />
+            <img src={logoVerde} alt="En Forma Seguros" className="h-10 mb-4" loading="lazy" />
             <p className="text-sm leading-relaxed text-muted-foreground/80">
               Porque el bienestar integral incluye tus finanzas, estamos aquí para ayudarte a construir una vida en equilibrio.
             </p>
           </div>
 
-          <div>
+          <nav aria-label="Menú principal">
             <h4 className="text-primary font-semibold mb-4">Menú</h4>
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="hover:text-primary-foreground transition-colors">Inicio</a></li>
               <li><a href="#clientes" className="hover:text-primary-foreground transition-colors">Clientes</a></li>
               <li><a href="#agenda" className="hover:text-primary-foreground transition-colors">Contacto</a></li>
             </ul>
-          </div>
+          </nav>
 
-          <div>
+          <nav aria-label="Información">
             <h4 className="text-primary font-semibold mb-4">Info</h4>
             <ul className="space-y-2 text-sm">
               <li><a href="#servicios" className="hover:text-primary-foreground transition-colors">Servicios</a></li>
               <li><a href="#nosotros" className="hover:text-primary-foreground transition-colors">Nosotros</a></li>
               <li><a href="#preguntas" className="hover:text-primary-foreground transition-colors">Preguntas</a></li>
             </ul>
-          </div>
+          </nav>
 
           <div>
             <h4 className="text-primary font-semibold mb-4 italic">Comencemos a Trabajar</h4>
@@ -38,7 +38,7 @@ const Footer = () => {
               <li><span className="text-primary font-medium">Wpp:</span> 811 9034948</li>
               <li><span className="text-primary font-medium">Mail:</span> Ogui.magana@gmail.com</li>
             </ul>
-            <Button className="rounded-full px-6 mt-6" asChild>
+            <Button className="rounded-full px-6 mt-6 w-full sm:w-auto" asChild>
               <a href="#agenda">Agendar Llamada Gratuita</a>
             </Button>
           </div>
@@ -50,10 +50,10 @@ const Footer = () => {
             <span>San Pedro Garza García. Nuevo León, México</span>
           </div>
           <div className="flex items-center gap-4">
-            <a href="#" className="w-8 h-8 rounded-full border border-muted-foreground/40 flex items-center justify-center hover:border-primary transition-colors text-xs">IG</a>
-            <a href="#" className="w-8 h-8 rounded-full border border-muted-foreground/40 flex items-center justify-center hover:border-primary transition-colors text-xs">WA</a>
-            <a href="#" className="w-8 h-8 rounded-full border border-muted-foreground/40 flex items-center justify-center hover:border-primary transition-colors text-xs">FB</a>
-            <a href="#" className="w-8 h-8 rounded-full border border-muted-foreground/40 flex items-center justify-center hover:border-primary transition-colors text-xs">IN</a>
+            <a href="#" aria-label="Instagram" className="w-8 h-8 rounded-full border border-muted-foreground/40 flex items-center justify-center hover:border-primary hover:text-primary transition-colors text-xs">IG</a>
+            <a href="#" aria-label="WhatsApp" className="w-8 h-8 rounded-full border border-muted-foreground/40 flex items-center justify-center hover:border-primary hover:text-primary transition-colors text-xs">WA</a>
+            <a href="#" aria-label="Facebook" className="w-8 h-8 rounded-full border border-muted-foreground/40 flex items-center justify-center hover:border-primary hover:text-primary transition-colors text-xs">FB</a>
+            <a href="#" aria-label="LinkedIn" className="w-8 h-8 rounded-full border border-muted-foreground/40 flex items-center justify-center hover:border-primary hover:text-primary transition-colors text-xs">IN</a>
           </div>
         </div>
         <p className="text-center text-xs text-muted-foreground/60 mt-6">

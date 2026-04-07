@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTheme } from "@/hooks/use-theme";
 import logoAzul from "@/assets/logo-azul.png";
+import logoVerde from "@/assets/logo-verde.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggle } = useTheme();
 
   const links = [
     { label: "Servicios", href: "#servicios" },
@@ -16,8 +19,8 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <a href="#">
-          <img src={logoAzul} alt="En Forma Seguros" className="h-10 md:h-12" />
+        <a href="#" aria-label="Inicio - En Forma Seguros">
+          <img src={theme === "dark" ? logoVerde : logoAzul} alt="En Forma Seguros" className="h-10 md:h-12" />
         </a>
 
         <div className="hidden md:flex items-center gap-8">
@@ -28,13 +31,31 @@ const Navbar = () => {
           ))}
         </div>
 
-        <Button className="hidden md:inline-flex rounded-full px-6" asChild>
-          <a href="#agenda">Agendar Llamada</a>
-        </Button>
+        <div className="hidden md:flex items-center gap-3">
+          <button
+            onClick={toggle}
+            className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-colors"
+            aria-label={theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
+          <Button className="rounded-full px-6" asChild>
+            <a href="#agenda">Agendar Llamada</a>
+          </Button>
+        </div>
 
-        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={toggle}
+            className="w-10 h-10 rounded-full border border-border flex items-center justify-center"
+            aria-label={theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
+          <button onClick={() => setIsOpen(!isOpen)} aria-label="Menú">
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {isOpen && (
