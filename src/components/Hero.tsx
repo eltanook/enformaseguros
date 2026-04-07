@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import savingMoneyBadge from "@/assets/saving-money-badge.png";
+import libertadFinanciera from "@/assets/libertad-financiera.png";
 
 const Hero = () => {
   return (
     <section className="py-16 md:py-24 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left */}
           <div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-foreground">
               Bienestar Activo<br />de Hoy y Mañana
@@ -24,23 +25,14 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right - decorative placeholder */}
           <div className="relative flex justify-center">
-            <div className="w-72 h-72 md:w-96 md:h-96 rounded-[40%] bg-primary flex items-center justify-center relative">
-              <span className="text-6xl md:text-8xl">✌️</span>
-              {/* Sticker */}
-              <div className="absolute -top-2 -right-2 bg-secondary/80 rounded-xl px-3 py-2 text-xs font-bold text-foreground shadow-lg rotate-6">
-                LIBERTAD<br/>FINANCIERA<br/>BABY!
-              </div>
-              {/* Ring text decoration */}
-              <div className="absolute bottom-4 left-4 text-primary-foreground/60 text-[10px] font-bold tracking-widest uppercase rotate-[-20deg]">
-                SAVING MONEY IS COOL
-              </div>
+            <img src={savingMoneyBadge} alt="Saving Money is Cool" className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain" />
+            <div className="absolute -top-2 right-0 md:-right-4 bg-secondary/80 rounded-xl p-2 shadow-lg rotate-6 max-w-[160px]">
+              <img src={libertadFinanciera} alt="Libertad Financiera Baby!" className="w-full" />
             </div>
           </div>
         </div>
 
-        {/* Trust bar */}
         <div className="mt-20 text-center">
           <p className="text-muted-foreground text-sm mb-8 italic">Confían en Nosotros:</p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
@@ -48,7 +40,7 @@ const Hero = () => {
             <span className="text-lg font-semibold text-muted-foreground">GRISELL <span className="text-2xl">GS</span> SORDO</span>
             <span className="text-xl font-bold text-muted-foreground italic" style={{ color: "hsl(var(--destructive))" }}>Luar</span>
             <span className="text-xl font-bold text-muted-foreground">corehaus.</span>
-            <span className="text-sm font-semibold text-muted-foreground">TU NUTRIOLOGA<br/>PERSONAL</span>
+            <span className="text-sm font-semibold text-muted-foreground">TU NUTRIOLOGA<br />PERSONAL</span>
           </div>
         </div>
       </div>
