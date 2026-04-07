@@ -1,9 +1,12 @@
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import logoAzul from "@/assets/logo-azul.png";
 
 const Agenda = () => {
+  const ref = useScrollAnimation();
+
   return (
     <section id="agenda" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4 text-center">
+      <div ref={ref} className="container mx-auto px-4 text-center animate-on-scroll">
         <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">
           Agenda Tu Asesoría
         </h2>
@@ -11,10 +14,10 @@ const Agenda = () => {
           Reserva una sesión con En Forma Seguros y comienza tu camino hacia la tranquilidad financiera. ¡Estamos aquí para ayudarte!
         </p>
 
-        <div className="mt-12 max-w-3xl mx-auto bg-background rounded-2xl shadow-lg border overflow-hidden">
+        <div className="mt-12 max-w-3xl mx-auto bg-card rounded-2xl shadow-lg border overflow-hidden">
           <div className="grid md:grid-cols-2">
-            <div className="p-8 text-left border-r">
-              <img src={logoAzul} alt="En Forma Seguros" className="h-10 mb-6" />
+            <div className="p-6 sm:p-8 text-left border-b md:border-b-0 md:border-r border-border">
+              <img src={logoAzul} alt="En Forma Seguros" className="h-10 mb-6" loading="lazy" />
 
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-sm font-bold text-foreground">O</div>
@@ -32,7 +35,7 @@ const Agenda = () => {
               </p>
             </div>
 
-            <div className="p-8">
+            <div className="p-6 sm:p-8">
               <h3 className="font-bold text-foreground mb-4">Selecciona una fecha y hora</h3>
               <div className="bg-muted rounded-xl p-4 h-64 flex items-center justify-center">
                 <p className="text-muted-foreground text-sm">Calendario próximamente</p>

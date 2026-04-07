@@ -1,4 +1,5 @@
 import { ShieldCheck, HeartPulse, PiggyBank } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const services = [
   {
@@ -19,9 +20,11 @@ const services = [
 ];
 
 const Services = () => {
+  const ref = useScrollAnimation();
+
   return (
     <section id="servicios" className="py-20">
-      <div className="container mx-auto px-4 text-center">
+      <div ref={ref} className="container mx-auto px-4 text-center animate-on-scroll">
         <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">
           Beneficios de una Vida<br />Financiera Saludable
         </h2>
@@ -29,18 +32,18 @@ const Services = () => {
           Cuida de tu bienestar financiero con servicios que te ofrecen respaldo y tranquilidad. En En Forma Seguros, creemos que la salud integral incluye tanto el cuerpo como las finanzas, y estamos aquí para acompañarte en tu camino hacia una vida plena y equilibrada.
         </p>
 
-        <div className="mt-12 grid md:grid-cols-3 gap-6">
+        <div className="mt-12 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           {services.map((s) => (
-            <div
+            <article
               key={s.title}
-              className="bg-secondary rounded-2xl p-8 text-left"
+              className="bg-secondary rounded-2xl p-6 sm:p-8 text-left hover:shadow-lg transition-shadow"
             >
               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mb-4">
                 <s.icon className="h-5 w-5 text-primary" />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-3">{s.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
-            </div>
+            </article>
           ))}
         </div>
       </div>
