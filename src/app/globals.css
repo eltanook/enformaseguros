@@ -4,37 +4,37 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 234 50% 18%;
+    --background: 40 33% 98%;
+    --foreground: 224 71% 4%;
 
     --card: 0 0% 100%;
-    --card-foreground: 234 50% 18%;
+    --card-foreground: 224 71% 4%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 234 50% 18%;
+    --popover-foreground: 224 71% 4%;
 
-    --primary: 149 63% 29%;
+    --primary: 153 60% 21%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 252 60% 83%;
-    --secondary-foreground: 234 50% 18%;
+    --secondary-foreground: 224 71% 4%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
     --accent: 252 60% 83%;
-    --accent-foreground: 234 50% 18%;
+    --accent-foreground: 224 71% 4%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 149 63% 29%;
+    --ring: 153 60% 21%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --dark-bg: 244 65% 11%;
+    --dark-bg: 224 71% 4%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -86,10 +86,20 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-josefin), sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-josefin), sans-serif;
+    font-weight: 700;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  .font-branding {
+    font-family: var(--font-archivo), sans-serif;
   }
 }
 
@@ -154,4 +164,16 @@
 .animate-on-scroll-scale.animate-visible {
   opacity: 1;
   transform: scale(1);
+}
+
+/* Custom Text Selection */
+::selection {
+  background-color: rgba(0, 111, 79, 0.3); /* Green with opacity */
+  color: #050A10; /* Main deep blue text color */
+}
+
+/* For Firefox */
+::-moz-selection {
+  background-color: rgba(0, 111, 79, 0.3);
+  color: #050A10;
 }

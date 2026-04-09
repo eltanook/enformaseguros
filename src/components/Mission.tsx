@@ -1,3 +1,6 @@
+"use client";
+import Image from "next/image";
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
@@ -9,10 +12,10 @@ const Mission = () => {
 
   return (
     <section className="py-20">
-      <div ref={ref} className="container mx-auto px-4 animate-on-scroll">
+      <div ref={ref} className="container mx-auto px-6 md:px-4 animate-on-scroll">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground italic leading-tight">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight">
               Tu Salud En Forma,<br />Tu Futuro Asegurado.
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
@@ -30,7 +33,7 @@ const Mission = () => {
 
           <div className="flex justify-center relative mt-8 md:mt-0">
             {/* Circular badge top-left of the card */}
-            <img
+            <Image
               src={flag}
               alt="Tu Salud En Forma, Tu Futuro Asegurado"
               className="absolute -top-6 -left-2 sm:left-4 md:-left-4 z-10 w-24 sm:w-28 h-auto drop-shadow-lg"
@@ -38,7 +41,7 @@ const Mission = () => {
             />
             {/* Kettlebell in card */}
             <div className="w-56 h-64 sm:w-64 sm:h-72 md:w-80 md:h-96 rounded-2xl border-4 border-secondary bg-muted flex items-center justify-center p-6 sm:p-8">
-              <img src={kettlebellGradient} alt="En Forma Seguros - Kettlebell" className="w-full h-full object-contain" loading="lazy" />
+              <Image src={kettlebellGradient} alt="En Forma Seguros - Kettlebell" className="w-full h-full object-contain" loading="lazy" />
             </div>
           </div>
         </div>

@@ -1,49 +1,70 @@
-import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import logoAzul from "@/assets/logo-azul.png";
+"use client";
+import { motion } from "framer-motion";
+import agendaBg from "@/assets/agenda-bg.png";
+import { useTheme } from "@/hooks/use-theme";
 
 const Agenda = () => {
-  const ref = useScrollAnimation();
+  const { theme } = useTheme();
+  
+  // Custom colors for Calendly theme matching
+  // Background: #0a0e1a (dark) vs white (light)
+  // Text: #ffffff (dark) vs #000000 (light)
+  // Primary: #006f4f (green)
+  const calendlyBaseUrl = "https://calendly.com/ogui-magana/agenda";
+  const calendlyParams = theme === "dark" 
+    ? "?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=006f4f&background_color=0a0e1a&text_color=ffffff"
+    : "?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=006f4f";
+  
+  const calendlyUrl = `${calendlyBaseUrl}${calendlyParams}`;
 
   return (
-    <section id="agenda" className="py-20 bg-muted/30">
-      <div ref={ref} className="container mx-auto px-4 text-center animate-on-scroll">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">
-          Agenda Tu Asesoría
-        </h2>
-        <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-          Reserva una sesión con En Forma Seguros y comienza tu camino hacia la tranquilidad financiera. ¡Estamos aquí para ayudarte!
-        </p>
-
-        <div className="mt-12 max-w-3xl mx-auto bg-card rounded-2xl shadow-lg border overflow-hidden">
-          <div className="grid md:grid-cols-2">
-            <div className="p-6 sm:p-8 text-left border-b md:border-b-0 md:border-r border-border">
-              <img src={logoAzul} alt="En Forma Seguros" className="h-10 mb-6" loading="lazy" />
-
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-sm font-bold text-foreground">O</div>
-                <span className="text-muted-foreground text-sm">Ogui Magaña</span>
-              </div>
-              <h3 className="text-xl font-bold text-foreground mt-2">Asesoría con Ogui</h3>
-              <p className="text-muted-foreground text-sm mt-2 flex items-center gap-2">
-                🕐 30 min
-              </p>
-              <p className="text-primary text-sm italic mt-4">
-                El primer paso hacia tus finanzas en forma.
-              </p>
-              <p className="text-muted-foreground text-sm mt-4">
-                ✨ Primera cita para conocernos y platicar sobre tu bienestar financiero. En esta charla relajada, descubriremos qué objetivo quieres
-              </p>
-            </div>
-
-            <div className="p-6 sm:p-8">
-              <h3 className="font-bold text-foreground mb-4">Selecciona una fecha y hora</h3>
-              <div className="bg-muted rounded-xl p-4 h-64 flex items-center justify-center">
-                <p className="text-muted-foreground text-sm">Calendario próximamente</p>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section id="agenda" className="relative py-32 overflow-hidden bg-background">
+      {/* Background Image with Fixed Attachment */}
+      <div 
+        className="absolute inset-0 z-0 bg-fixed bg-cover bg-center grayscale opacity-20 dark:opacity-10"
+        style={{ backgroundImage: `url(${agendaBg.src})` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background/90" />
       </div>
+
+      <div className="container mx-auto px-4 relative z-10 text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <span className="text-primary font-bold tracking-widest uppercase text-sm">Próximo Paso</span>
+          <h2 className="text-4xl md:text-6xl font-bold text-foreground mt-4 mb-6 tracking-tighter">
+            Comienza a <span className="text-primary">Planificar tu Futuro.</span>
+          </h2>
+          <p className="mt-6 text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed font-medium">
+            Reserva una sesión estratégica gratuita de 30 minutos para diagnosticar tu situación financiera actual y trazar una hoja de ruta personalizada.
+          </p>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-6xl mx-auto"
+        >
+          <div className="w-full h-[750px] relative">
+            <iframe
+              src={calendlyUrl}
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              title="Agendar Asesoría con Ogui Magaña"
+              className="opacity-100 transition-opacity duration-300"
+            />
+          </div>
+        </motion.div>
+      </div>
+
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
     </section>
   );
 };

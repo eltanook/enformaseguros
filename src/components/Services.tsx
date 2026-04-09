@@ -1,51 +1,107 @@
-import { ShieldCheck, HeartPulse, PiggyBank } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
+import serviceWealth from "@/assets/service-wealth.png";
+import serviceHealth from "@/assets/service-health.png";
+import serviceRetirement from "@/assets/service-retirement.png";
 
 const services = [
   {
-    icon: ShieldCheck,
-    title: "Asesoría Financiera",
-    desc: "Recibe asesoría clara y práctica para manejar tus finanzas con confianza. Define tus objetivos, prioriza tus metas y asegura tu bienestar y el de quienes te rodean.",
+    title: "Asesoría Patrimonial",
+    desc: "Estrategias de blindaje financiero diseñadas para proteger tu legado y asegurar una transición patrimonial fluida y eficiente.",
+    img: serviceWealth,
   },
   {
-    icon: HeartPulse,
-    title: "Protección de Salud",
-    desc: "Disfruta la tranquilidad de contar con el respaldo adecuado en momentos críticos. Nuestros seguros de gastos medicos mayores te ofrecen la paz mental que necesitas para concentrarte en lo que importa.",
+    title: "Blindaje de Salud",
+    desc: "Planes de Gastos Médicos Mayores con cobertura nacional e internacional, garantizando acceso a la mejor medicina privada sin comprometer tu capital.",
+    img: serviceHealth,
   },
   {
-    icon: PiggyBank,
-    title: "Soluciones de Ahorro",
-    desc: "Prepárate para un futuro estable y sin preocupaciones. Nuestros planes de ahorro te permiten construir un patrimonio que te dará libertad para disfrutar de tus próximos años.",
+    title: "Ahorro y Retiro Estratégico",
+    desc: "Optimización de excedentes y planeación fiscal para el retiro, permitiéndote mantener tu estilo de vida durante la etapa de jubilación.",
+    img: serviceRetirement,
   },
 ];
 
 const Services = () => {
-  const ref = useScrollAnimation();
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.23, 1, 0.32, 1] } },
+  };
 
   return (
-    <section id="servicios" className="py-20">
-      <div ref={ref} className="container mx-auto px-4 text-center animate-on-scroll">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">
-          Beneficios de una Vida<br />Financiera Saludable
-        </h2>
-        <p className="mt-6 text-muted-foreground max-w-2xl mx-auto">
-          Cuida de tu bienestar financiero con servicios que te ofrecen respaldo y tranquilidad. En En Forma Seguros, creemos que la salud integral incluye tanto el cuerpo como las finanzas, y estamos aquí para acompañarte en tu camino hacia una vida plena y equilibrada.
-        </p>
+    <section id="servicios" className="py-24 bg-background">
+      <div className="container mx-auto px-6 md:px-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <span className="text-primary font-bold tracking-widest uppercase text-sm">Nuestros Pilares</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4">
+            Soluciones financieras <span className="text-primary">de alto impacto.</span>
+          </h2>
+          <p className="mt-6 text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed font-medium">
+            No vendemos pólizas; diseñamos arquitecturas de protección que se adaptan a tu momento de vida, brindando seguridad tangible y paz mental absoluta.
+          </p>
+        </motion.div>
 
-        <div className="mt-12 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-3 gap-8"
+        >
           {services.map((s) => (
-            <article
+            <motion.article
               key={s.title}
-              className="bg-secondary rounded-2xl p-6 sm:p-8 text-left hover:shadow-lg transition-shadow"
+              variants={itemVariants}
+              className="group relative bg-card rounded-[2.5rem] overflow-hidden border border-border/50 hover:border-primary/30 transition-all duration-500 shadow-sm hover:shadow-xl"
             >
-              <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mb-4">
-                <s.icon className="h-5 w-5 text-primary" />
+              <div className="pt-6 px-6">
+                <div className="relative h-48 w-full overflow-hidden rounded-t-3xl">
+                  <Image 
+                    src={s.img} 
+                    alt={s.title} 
+                    className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1F2C] via-[#1A1F2C]/40 to-transparent mix-blend-multiply opacity-60 group-hover:opacity-40 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-[#006F4F]/40 to-transparent opacity-0 group-hover:opacity-60 transition-opacity" />
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">{s.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
-            </article>
+
+              <div className="p-10">
+                <h3 className="text-2xl font-bold text-foreground mb-4 leading-tight group-hover:text-primary transition-colors duration-500">
+                  {s.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-8 font-medium">
+                  {s.desc}
+                </p>
+                
+                <a 
+                  href="#agenda" 
+                  className="inline-flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-primary/5 text-primary text-sm font-bold group-hover:bg-primary group-hover:text-white transition-all duration-500"
+                >
+                  Saber más <ArrowUpRight className="h-4 w-4 group-hover:rotate-45 transition-transform duration-500" />
+                </a>
+              </div>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
