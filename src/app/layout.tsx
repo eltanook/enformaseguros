@@ -17,8 +17,12 @@ const archivo = Archivo({
 export const metadata: Metadata = {
   title: "En Forma Seguros | Consultoría Patrimonial y Bienestar Financiero",
   description: "Protege tu futuro con asesoría experta en seguros de vida, gastos médicos mayores y planes de retiro. Estrategias patrimoniales personalizadas con el respaldo de Ogui Magaña.",
-  keywords: ["asesoría financiera", "seguros de vida", "gastos médicos mayores", "planes de retiro", "ahorro inteligente", "libertad financiera", "MDRT", "CNSF", "Ogui Magaña"],
-  authors: [{ name: "Ogui Magaña - En Forma Seguros" }],
+  keywords: ["seguros", "ahorro", "retiro", "asesoría financiera", "protección patrimonial", "México"],
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
+  },
+  authors: [{ name: "Ogui - En Forma Seguros" }],
   metadataBase: new URL("https://enformaseguros.com"),
   openGraph: {
     title: "En Forma Seguros | Consultoría Patrimonial",
