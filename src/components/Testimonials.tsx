@@ -168,7 +168,7 @@ const Testimonials = () => {
                 <div className="flex">
                   {testimonials.map((t, i) => (
                     <div key={i} className="flex-[0_0_100%] min-w-0 pl-0">
-                      <article className="p-8 mx-6 bg-card/30 border border-primary/20 rounded-[2rem] flex flex-col justify-between h-[450px]">
+                      <article className="p-8 mx-6 bg-card/30 border border-primary/20 rounded-[2rem] flex flex-col justify-between h-auto min-h-[320px]">
                         <p className="text-muted-foreground text-lg leading-relaxed font-medium mb-8">
                           {t.text}
                         </p>

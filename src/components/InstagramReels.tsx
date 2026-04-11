@@ -136,7 +136,7 @@ const InstagramReels = () => {
               <div className="overflow-hidden" ref={emblaRef}>
                 <div className="flex">
                   {reels.map((reel) => (
-                    <div key={reel.id} className="flex-[0_0_85%] min-w-0 pl-6">
+                    <div key={reel.id} className="flex-[0_0_85%] min-w-0 pl-6 pr-6 last:pr-6">
                       <ReelCard 
                         id={reel.id}
                         thumbnail={reel.thumbnail}
@@ -145,31 +145,13 @@ const InstagramReels = () => {
                       />
                     </div>
                   ))}
-                  {/* Final CTA Slide */}
-                  <div className="flex-[0_0_85%] min-w-0 pl-6 pr-6">
-                    <div className="h-[550px] bg-card/30 border border-primary/20 rounded-[2.5rem] flex flex-col items-center justify-center p-8 text-center">
-                      <h3 className="text-3xl font-bold text-foreground mb-4">
-                        Lleva tu futuro <span className="text-primary">al siguiente nivel.</span>
-                      </h3>
-                      <p className="text-muted-foreground text-sm font-medium mb-8">
-                        Síguenos para más consejos diarios sobre protección patrimonial.
-                      </p>
-                      <motion.div
-                        animate={{ y: [0, 8, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="flex flex-col items-center gap-2"
-                      >
-                         <ChevronDown className="h-8 w-8 text-primary" />
-                      </motion.div>
-                    </div>
-                  </div>
                 </div>
               </div>
               
               {/* Carousel Indicators & Controls */}
               <div className="flex items-center justify-between px-6 mt-8">
                 <div className="flex gap-2">
-                  {[...reels, { id: 'cta' }].map((_, i) => (
+                  {reels.map((_, i) => (
                     <button
                       key={i}
                       onClick={() => emblaApi?.scrollTo(i)}
