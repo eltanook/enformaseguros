@@ -185,6 +185,8 @@ const Hero = () => {
                 </div>
               </motion.div>
 
+               <motion.div 
+                style={{ y: stickerY2 }}
                 whileHover={{ scale: 1.1 }}
                 className="absolute top-1/2 right-4 sm:top-1/4 sm:right-8 z-20 bg-primary/60 text-white p-4 sm:p-6 rounded-[1.5rem] sm:rounded-[2rem] shadow-premium-lg backdrop-blur-xl min-w-[100px] sm:min-w-[140px] translate-y-[-50%] sm:translate-y-0 will-change-transform scale-90 sm:scale-100"
               >
@@ -196,6 +198,9 @@ const Hero = () => {
                 </div>
               </motion.div>
 
+               <motion.div 
+                animate={{ y: [0, 20, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 whileHover={{ scale: 1.1 }}
                 className="absolute top-4 left-4 sm:top-4 sm:left-10 z-20 bg-white/60 dark:bg-card/60 p-4 sm:p-6 rounded-[1.5rem] sm:rounded-[2rem] shadow-premium-lg border border-border/50 backdrop-blur-xl min-w-[100px] sm:min-w-[140px] will-change-transform scale-90 sm:scale-100"
               >
