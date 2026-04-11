@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ShieldCheck, Users, Calendar, Award } from "lucide-react";
+import { ShieldCheck, Users, Calendar, Award, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
@@ -13,8 +13,8 @@ const Counter = ({ value }: { value: string }) => {
   const numericValue = parseInt(value.replace("+", ""));
   const motionValue = useMotionValue(0);
   const springValue = useSpring(motionValue, {
-    damping: 40,
-    stiffness: 25,
+    damping: 20,
+    stiffness: 80,
     restDelta: 0.001
   });
   const displayValue = useTransform(springValue, (latest) => Math.floor(latest));
@@ -66,7 +66,7 @@ const Trust = () => {
             viewport={{ once: true }}
             className="max-w-xl"
           >
-            <span className="text-primary font-bold tracking-widest uppercase text-sm">Nuestro Compromiso</span>
+            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-6">Nuestro Compromiso</span>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4 mb-8 leading-tight">
               Una estructura de confianza <span className="text-primary">diseñada para durar.</span>
             </h2>
@@ -75,9 +75,9 @@ const Trust = () => {
             </p>
             
             <div className="space-y-4 mb-10">
-              <div className="flex items-center gap-4 p-4 bg-card rounded-2xl border border-border/50 shadow-sm">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                  <Award className="h-6 w-6" />
+              <div className="flex items-center gap-4 p-4 bg-[#262362]/5 rounded-2xl border border-[#262362]/10 shadow-premium">
+                <div className="w-12 h-12 rounded-full bg-[#262362]/10 flex items-center justify-center text-[#262362]">
+                  <Globe className="h-6 w-6" />
                 </div>
                 <div>
                   <p className="font-bold text-foreground">Certificación Internacional</p>
@@ -87,10 +87,10 @@ const Trust = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="rounded-full px-8 h-14 text-base font-bold shadow-xl shadow-primary/20" asChild>
+              <Button className="rounded-full px-8 h-14 text-base font-bold shadow-premium hover:shadow-premium-lg hover:-translate-y-1 transition-all duration-300" asChild>
                 <a href="#agenda">Agendar Consulta Directa</a>
               </Button>
-              <Button variant="outline" className="rounded-full px-8 h-14 text-base font-bold border-2" asChild>
+              <Button variant="outline" className="rounded-full px-8 h-14 text-base font-bold border-2 hover:-translate-y-1 transition-all duration-300" asChild>
                 <a href="#servicios">Explorar Servicios</a>
               </Button>
             </div>
@@ -106,7 +106,7 @@ const Trust = () => {
                 transition={{ delay: index * 0.1 }}
                 className={`group relative p-8 rounded-[2.5rem] overflow-hidden ${
                   index === 0 ? "bg-primary text-white sm:col-span-2" : "bg-card border border-border/50"
-                } shadow-xl flex flex-col justify-between min-h-[220px]`}
+                } shadow-premium flex flex-col justify-between min-h-[220px]`}
               >
                 {stat.hasBg && (
                   <>
@@ -121,12 +121,12 @@ const Trust = () => {
                 )}
 
                 <div className="relative z-10">
-                  <stat.icon className={`h-10 w-10 mb-6 ${index === 0 ? "text-white/80" : "text-primary"}`} />
+                  <stat.icon className={`h-10 w-10 mb-6 ${index === 0 ? "text-white/80" : index === 1 ? "text-[#262362]" : "text-primary"}`} />
                   <div>
-                    <p className={`text-4xl md:text-5xl font-bold mb-2 tracking-tighter ${index === 0 ? "text-white" : "text-foreground"}`}>
+                    <p className={`text-4xl md:text-5xl font-bold mb-2 tracking-tighter ${index === 0 ? "text-white" : index === 1 ? "text-[#262362]" : "text-foreground"}`}>
                       <Counter value={stat.value} />
                     </p>
-                    <p className={`text-lg font-bold mb-4 uppercase tracking-widest ${index === 0 ? "text-white/90" : "text-primary"}`}>
+                    <p className={`text-lg font-bold mb-4 uppercase tracking-widest ${index === 0 ? "text-white/90" : index === 1 ? "text-[#262362]" : "text-primary"}`}>
                       {stat.label}
                     </p>
                     <p className={`text-sm leading-relaxed font-medium ${index === 0 ? "text-white/70" : "text-muted-foreground"}`}>

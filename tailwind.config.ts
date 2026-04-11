@@ -64,6 +64,10 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        'premium': '0 10px 40px -10px rgba(0, 0, 0, 0.06)',
+        'premium-lg': '0 20px 60px -12px rgba(0, 0, 0, 0.1)',
+      },
       keyframes: {
         "accordion-down": {
           from: {

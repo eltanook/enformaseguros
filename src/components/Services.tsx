@@ -50,7 +50,7 @@ const Services = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-bold tracking-widest uppercase text-sm">Nuestros Pilares</span>
+          <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-6">Nuestros Pilares</span>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4">
             Soluciones financieras <span className="text-primary">de alto impacto.</span>
           </h2>
@@ -70,13 +70,13 @@ const Services = () => {
             <motion.article
               key={s.title}
               variants={itemVariants}
-              className="group relative bg-card rounded-[2.5rem] overflow-hidden border border-border/50 hover:border-primary/30 transition-all duration-500 shadow-sm hover:shadow-xl"
+              className="group relative bg-card rounded-[2.5rem] overflow-hidden border border-border/50 hover:border-primary/30 transition-all duration-500 shadow-premium hover:shadow-premium-lg"
             >
               <div className="pt-6 px-6">
                 <div className="relative h-48 w-full overflow-hidden rounded-t-3xl">
                   <Image 
                     src={s.img} 
-                    alt={s.title} 
+                    alt={`Servicio de ${s.title} - Asesoría por En Forma Seguros`} 
                     className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1A1F2C] via-[#1A1F2C]/40 to-transparent mix-blend-multiply opacity-60 group-hover:opacity-40 transition-opacity" />

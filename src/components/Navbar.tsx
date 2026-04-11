@@ -13,13 +13,18 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [mounted, setMounted] = useState(false);
   const { theme, toggle } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      const sectionIds = ["agenda", "clientes", "trust", "contenido", "servicios", "sobremi", "preguntas"];
+      const sectionIds = ["agenda", "clientes", "servicios", "contenido", "sobremi", "contacto"];
       let current = "";
       for (const id of sectionIds) {
         const element = document.getElementById(id);
@@ -45,11 +50,10 @@ const Navbar = () => {
   const links = [
     { label: "Agenda", href: "#agenda" },
     { label: "Clientes", href: "#clientes" },
-    { label: "Compromiso", href: "#trust" },
-    { label: "Contenido", href: "#contenido" },
     { label: "Servicios", href: "#servicios" },
+    { label: "Contenido", href: "#contenido" },
     { label: "Sobre Mí", href: "#sobremi" },
-    { label: "FAQ", href: "#preguntas" },
+    { label: "Contacto", href: "#contacto" },
   ];
 
   return (
@@ -59,7 +63,7 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
       className={`fixed md:sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? "bg-background/80 backdrop-blur-md border-b shadow-sm py-2" 
+          ? "bg-background/80 backdrop-blur-md border-b shadow-premium py-2" 
           : "bg-transparent py-4"
       }`}
     >
@@ -71,8 +75,8 @@ const Navbar = () => {
           whileTap={{ scale: 0.95 }}
         >
           <Image 
-            src={theme === "dark" ? logoVerde : logoAzul} 
-            alt="En Forma Seguros" 
+            src={mounted && theme === "dark" ? logoVerde : logoAzul} 
+            alt="Logotipo Oficial de En Forma Seguros - Consultoría Patrimonial" 
             className="h-10 md:h-12 w-auto object-contain" 
           />
         </motion.a>
@@ -108,9 +112,9 @@ const Navbar = () => {
             className="w-10 h-10 rounded-full bg-secondary/50 border border-border/50 flex items-center justify-center hover:bg-secondary transition-colors"
             aria-label={theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
           >
-            {theme === "dark" ? <Sun className="h-4 w-4 text-yellow-500" /> : <Moon className="h-4 w-4 text-primary" />}
+            {mounted && theme === "dark" ? <Sun className="h-4 w-4 text-yellow-500" /> : <Moon className="h-4 w-4 text-primary" />}
           </motion.button>
-          <Button className="rounded-full px-8 h-11 font-bold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all" asChild>
+          <Button className="rounded-full px-8 h-11 font-bold shadow-premium hover:shadow-premium-lg hover:-translate-y-1 transition-all duration-300" asChild>
             <a href="#agenda">Agendar Asesoría</a>
           </Button>
         </div>
@@ -121,7 +125,7 @@ const Navbar = () => {
             className="w-9 h-9 rounded-full border border-border flex items-center justify-center"
             aria-label={theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
           >
-            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            {mounted && theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
           <button 
             onClick={() => setIsOpen(!isOpen)} 

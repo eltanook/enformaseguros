@@ -60,45 +60,27 @@ const Hero = () => {
 
   return (
     <section ref={ref} className="relative pt-20 pb-24 md:pt-32 md:pb-40 overflow-hidden">
-      {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute inset-0 bg-background overflow-hidden">
           {/* Green grid (Soft & Premium) */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#006f4f0d_1px,transparent_1px),linear-gradient(to_bottom,#006f4f0d_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)]" />
-          
-          {/* Central Glow (Soft) */}
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-10%,rgba(0,111,79,0.12),transparent_70%)]" />
         </div>
-        
-        {/* Optimized background effects */}
-        <motion.div 
-          animate={{ opacity: [0.1, 0.2, 0.1] }} 
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          style={{ willChange: "opacity" }}
-          className="absolute top-0 right-0 w-1/2 h-full bg-primary/20 blur-[120px] transform translate-x-1/3" 
-        />
-        <motion.div 
-          animate={{ opacity: [0.1, 0.2, 0.1] }} 
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          style={{ willChange: "opacity" }}
-          className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[140px] -translate-x-1/2 translate-y-1/2" 
-        />
       </div>
 
       <div className="container mx-auto px-6 md:px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="text-center lg:text-left"
           >
-            <motion.div 
+            <motion.span 
               variants={itemVariants}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold mb-6"
+              className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-6"
             >
               Asesoría Certificada CNSF & MDRT
-            </motion.div>
+            </motion.span>
             
             <motion.h1 
               variants={itemVariants}
@@ -119,7 +101,7 @@ const Hero = () => {
               className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5"
             >
               <Button 
-                className="group relative rounded-full px-12 h-16 text-lg font-bold shadow-2xl shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-1 bg-primary text-white overflow-hidden w-full sm:w-auto" 
+                className="group relative rounded-full px-12 h-16 text-lg font-bold shadow-premium hover:shadow-premium-lg hover:-translate-y-1 transition-all duration-300 bg-primary text-white overflow-hidden w-full sm:w-auto" 
                 asChild
               >
                 <a href="#agenda" className="flex items-center justify-center gap-3">
@@ -135,106 +117,99 @@ const Hero = () => {
               </Button>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               variants={itemVariants}
-              className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-8 pt-10 border-t border-border/50 max-w-lg mx-auto lg:mx-0"
+              className="mt-16 flex flex-col items-center lg:items-start gap-4"
             >
-              <div className="text-center lg:text-left">
-                <p className="text-3xl font-bold text-foreground tabular-nums">
-                  <Counter value={100} suffix="%" />
-                </p>
-                <p className="text-xs text-muted-foreground font-bold tracking-wider mt-1">Personalizado</p>
-              </div>
-              <div className="text-center lg:text-left border-x border-border/30 px-4">
-                <p className="text-3xl font-bold text-foreground tabular-nums">
-                  <Counter value={500} prefix="+" />
-                </p>
-                <p className="text-xs text-muted-foreground font-bold tracking-wider mt-1">Familias</p>
-              </div>
-              <div className="text-center lg:text-left">
-                <p className="text-3xl font-bold text-primary">MDRT</p>
-                <p className="text-xs text-muted-foreground font-bold tracking-wider mt-1">Global Standard</p>
-              </div>
+              <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="flex flex-col items-center lg:items-start gap-3"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full border-2 border-primary/30 flex items-center justify-center">
+                    <ChevronDown className="h-6 w-6 text-primary animate-pulse" />
+                  </div>
+                  <span className="text-xs font-black uppercase tracking-[0.3em] text-primary/60">Descubre nuestra estrategia</span>
+                </div>
+              </motion.div>
             </motion.div>
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, x: 100, scale: 0.8 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="relative flex justify-center lg:justify-end"
+            className="relative flex justify-center lg:justify-end mb-8 lg:mb-0"
           >
-            <div className="relative group">
+            <div className="relative group p-12">
               <motion.div 
                 animate={{ 
-                  y: [0, -15, 0],
+                  y: [0, -20, 0],
+                  rotate: [0, 2, -2, 0]
                 }}
                 transition={{ 
                   duration: 6, 
                   repeat: Infinity, 
                   ease: "easeInOut" 
                 }}
-                className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-8 border-white dark:border-card max-w-[500px]"
+                className="relative z-10"
               >
                 <Image 
-                  src={premiumHero} 
+                  src="/hero-image.png" 
                   alt="Asesoría financiera premium - En Forma Seguros" 
-                  className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105" 
+                  width={600}
+                  height={700}
+                  className="w-[450px] sm:w-[550px] lg:w-[600px] h-auto object-contain transform transition-transform duration-700 hover:scale-105 drop-shadow-2xl" 
                   priority
                 />
               </motion.div>
               
-              {/* Floating badges */}
+              {/* Floating badges (Redesigned & Repositioned to overlap more) */}
               <motion.div 
                 style={{ y: stickerY1 }}
+                animate={{ 
+                  y: [-10, 10, -10],
+                }}
+                transition={{ 
+                  duration: 4, 
+                  repeat: Infinity, 
+                  ease: "easeInOut" 
+                }}
                 whileHover={{ scale: 1.1 }}
-                className="absolute -bottom-6 -left-6 z-20 bg-white dark:bg-card p-4 rounded-2xl shadow-xl border border-border/50 hidden sm:block"
+                className="absolute bottom-8 left-8 sm:bottom-16 sm:left-16 z-20 bg-[#262362]/90 text-white p-4 sm:p-6 rounded-[1.5rem] sm:rounded-[2rem] shadow-premium-lg backdrop-blur-xl min-w-[100px] sm:min-w-[140px] will-change-transform scale-90 sm:scale-100"
               >
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-primary/10 rounded-lg">
-                    <TrendingUp className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-foreground">Crecimiento</p>
-                    <p className="text-xs text-muted-foreground">Patrimonial Seguro</p>
-                  </div>
+                <div className="text-center">
+                  <p className="text-3xl font-bold tracking-tighter">MDRT</p>
+                  <p className="text-[10px] opacity-70 font-black tracking-widest uppercase mt-1">Global Standard</p>
                 </div>
               </motion.div>
 
-              <motion.div 
-                style={{ y: stickerY2 }}
                 whileHover={{ scale: 1.1 }}
-                className="absolute top-1/4 -right-8 z-20 bg-white dark:bg-card p-4 rounded-2xl shadow-xl border border-border/50 hidden sm:block"
+                className="absolute top-1/2 right-4 sm:top-1/4 sm:right-8 z-20 bg-primary/60 text-white p-4 sm:p-6 rounded-[1.5rem] sm:rounded-[2rem] shadow-premium-lg backdrop-blur-xl min-w-[100px] sm:min-w-[140px] translate-y-[-50%] sm:translate-y-0 will-change-transform scale-90 sm:scale-100"
               >
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-secondary/20 rounded-lg">
-                    <HeartHandshake className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-foreground">Confianza</p>
-                    <p className="text-xs text-muted-foreground">Acompañamiento Real</p>
-                  </div>
+                <div className="text-center">
+                  <p className="text-4xl font-black tabular-nums tracking-tighter">
+                     <Counter value={100} suffix="%" />
+                  </p>
+                  <p className="text-[10px] opacity-80 font-black tracking-widest uppercase mt-1">Personalizado</p>
+                </div>
+              </motion.div>
+
+                whileHover={{ scale: 1.1 }}
+                className="absolute top-4 left-4 sm:top-4 sm:left-10 z-20 bg-white/60 dark:bg-card/60 p-4 sm:p-6 rounded-[1.5rem] sm:rounded-[2rem] shadow-premium-lg border border-border/50 backdrop-blur-xl min-w-[100px] sm:min-w-[140px] will-change-transform scale-90 sm:scale-100"
+              >
+                <div className="text-center">
+                  <p className="text-4xl font-black text-foreground tabular-nums tracking-tighter">
+                    <Counter value={500} prefix="+" />
+                  </p>
+                  <p className="text-[10px] text-muted-foreground font-black tracking-widest uppercase mt-1">Familias</p>
                 </div>
               </motion.div>
             </div>
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <ChevronDown className="h-6 w-6 text-primary/40" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 };

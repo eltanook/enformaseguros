@@ -20,14 +20,25 @@ const About = () => {
       <div ref={ref} className="container mx-auto px-6 md:px-4 animate-on-scroll">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative flex justify-center">
-            <div className="w-60 h-72 sm:w-72 sm:h-80 md:w-80 md:h-[420px] rounded-2xl border-4 border-primary bg-muted overflow-hidden relative">
-              <Image src={oguiCoach} alt="Ogui Magaña - Coach Financiera" className="w-full h-full object-cover object-top" />
+            <div className="w-60 h-72 sm:w-72 sm:h-80 md:w-80 md:h-[450px] rounded-3xl border-4 border-primary bg-primary overflow-hidden relative shadow-premium-lg">
+              {/* Green Grid Background for PNG */}
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff15_1px,transparent_1px),linear-gradient(to_bottom,#ffffff15_1px,transparent_1px)] bg-[size:15px_15px] opacity-40" />
+              <Image 
+                src={oguiCoach} 
+                alt="Ogui Magaña - Coach Financiera" 
+                className="w-full h-full object-contain relative z-10 transition-transform duration-500 hover:scale-105" 
+              />
+              
+              {/* MDRT Badge */}
+              <div className="absolute top-4 left-4 z-20 bg-[#262362] text-white px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-premium">
+                MDRT Court of the Table
+              </div>
             </div>
             {/* Logo positioned bottom-right overlapping the photo frame */}
             <Image
               src={logoVertical}
               alt="En Forma Seguros"
-              className="absolute bottom-4 -right-2 sm:right-4 md:right-8 w-16 sm:w-20 h-auto drop-shadow-lg"
+              className="absolute -bottom-6 -right-4 sm:right-0 md:-right-6 w-20 sm:w-24 h-auto drop-shadow-2xl z-20"
             />
           </div>
 

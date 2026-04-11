@@ -42,6 +42,20 @@ export const metadata: Metadata = {
     description: "Protege tu futuro con asesoría experta.",
     images: ["/og-image.png"],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://enformaseguros.com",
+  },
 };
 
 export default function RootLayout({

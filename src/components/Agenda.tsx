@@ -12,8 +12,8 @@ const Agenda = () => {
   // Primary: #006f4f (green)
   const calendlyBaseUrl = "https://calendly.com/ogui-magana/agenda";
   const calendlyParams = theme === "dark" 
-    ? "?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=006f4f&background_color=0a0e1a&text_color=ffffff"
-    : "?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=006f4f";
+    ? "?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=006f4f&background_color=0a0e1e&text_color=ffffff"
+    : "?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=006f4f&background_color=ffffff";
   
   const calendlyUrl = `${calendlyBaseUrl}${calendlyParams}`;
 
@@ -21,10 +21,10 @@ const Agenda = () => {
     <section id="agenda" className="relative py-32 overflow-hidden bg-background">
       {/* Background Image with Fixed Attachment */}
       <div 
-        className="absolute inset-0 z-0 bg-fixed bg-cover bg-center grayscale opacity-20 dark:opacity-10"
+        className="absolute inset-0 z-0 bg-fixed bg-cover bg-center opacity-20 dark:opacity-10"
         style={{ backgroundImage: `url(${agendaBg.src})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background/90" />
+        <div className="absolute inset-0 bg-background/30" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10 text-center">
@@ -34,7 +34,7 @@ const Agenda = () => {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <span className="text-primary font-bold tracking-widest uppercase text-sm">Próximo Paso</span>
+          <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-6">Próximo Paso</span>
           <h2 className="text-4xl md:text-6xl font-bold text-foreground mt-4 mb-6 tracking-tighter">
             Comienza a <span className="text-primary">Planificar tu Futuro.</span>
           </h2>
@@ -50,14 +50,14 @@ const Agenda = () => {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-6xl mx-auto"
         >
-          <div className="w-full h-[750px] relative">
+          <div className="w-full h-[750px] relative rounded-3xl overflow-hidden border border-border/50 bg-background/40 backdrop-blur-sm">
             <iframe
               src={calendlyUrl}
               width="100%"
               height="100%"
               frameBorder="0"
               title="Agendar Asesoría con Ogui Magaña"
-              className="opacity-100 transition-opacity duration-300"
+              className="opacity-100 transition-opacity duration-300 relative z-10"
             />
           </div>
         </motion.div>

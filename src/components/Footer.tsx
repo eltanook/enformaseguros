@@ -56,7 +56,7 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-bold text-lg mb-8 tracking-widest">Servicios</h4>
             <ul className="space-y-4">
-              {["Asesoría Patrimonial", "Blindaje de Salud", "Ahorro & Retiro", "Blindaje de Vida"].map((item) => (
+              {["Salud", "Retiro", "Vida & Patrimonio", "Gastos Médicos"].map((item) => (
                 <li key={item}>
                   <a href="#servicios" className="text-muted-foreground hover:text-primary transition-colors font-medium flex items-center justify-center md:justify-start group">
                     <span className="hidden md:block w-0 group-hover:w-4 transition-all duration-300 h-[2px] bg-primary mr-0 group-hover:mr-2" />
@@ -70,9 +70,9 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-bold text-lg mb-8 tracking-widest">Compañía</h4>
             <ul className="space-y-4">
-              {["Sobre Mí", "Filosofía", "Testimonios", "Preguntas FAQ"].map((item) => (
+              {["Sobre Mí", "Agenda de Citas", "Contenido", "Contacto"].map((item) => (
                 <li key={item}>
-                  <a href={`#${item === "Testimonios" ? "clientes" : item === "Sobre Mí" ? "sobremi" : item.toLowerCase()}`} className="text-muted-foreground hover:text-primary transition-colors font-medium flex items-center justify-center md:justify-start group">
+                  <a href={`#${item === "Agenda de Citas" ? "agenda" : item === "Sobre Mí" ? "sobremi" : item === "Contenido" ? "contenido" : "contacto"}`} className="text-muted-foreground hover:text-primary transition-colors font-medium flex items-center justify-center md:justify-start group">
                     <span className="hidden md:block w-0 group-hover:w-4 transition-all duration-300 h-[2px] bg-primary mr-0 group-hover:mr-2" />
                     {item}
                   </a>
@@ -82,11 +82,8 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-white font-bold text-lg mb-8 tracking-widest">Agendar ahora</h4>
-            <p className="text-muted-foreground text-sm mb-6 leading-relaxed font-medium">
-              Comienza hoy a construir tu legado con una asesoría sin costo ni compromiso.
-            </p>
-            <div className="space-y-4 mb-8 flex flex-col items-center md:items-start">
+            <h4 className="text-white font-bold text-lg mb-8 tracking-widest">Contacto</h4>
+            <div className="space-y-4 mb-8 flex flex-col items-center md:items-start text-center md:text-left">
               <a href="mailto:Ogui.magana@gmail.com" className="flex items-center gap-3 text-muted-foreground hover:text-white transition-colors group">
                 <Mail className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
                 <span className="text-sm font-medium">Ogui.magana@gmail.com</span>
@@ -95,6 +92,10 @@ const Footer = () => {
                 <FaWhatsapp className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
                 <span className="text-sm font-medium">+52 811 903 4948 (WhatsApp)</span>
               </a>
+              <div className="flex items-start gap-3 text-muted-foreground group mt-2 pt-4 border-t border-white/5">
+                <MapPin className="h-5 w-5 text-primary shrink-0 group-hover:scale-110 transition-transform" />
+                <span className="text-sm font-medium leading-relaxed max-w-[240px]">Av. Ricardo Margain Zozaya 555-Edificio B, Santa Engracia, 66279 San Pedro Garza García, N.L. México</span>
+              </div>
             </div>
             <Button className="rounded-full px-8 h-12 w-full font-bold shadow-lg shadow-primary/20" asChild>
               <a href="#agenda">Planificar mi Futuro</a>
@@ -104,8 +105,7 @@ const Footer = () => {
 
         <div className="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-3 text-muted-foreground/60 text-sm font-medium">
-            <MapPin className="h-4 w-4 text-primary" />
-            <span>San Pedro Garza García. NL, México</span>
+            <span>En Forma Seguros</span>
           </div>
           
           <p className="text-xs text-muted-foreground/40 font-bold tracking-widest">
