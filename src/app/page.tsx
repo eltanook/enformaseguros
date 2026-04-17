@@ -1,3 +1,4 @@
+"use client";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -6,11 +7,11 @@ import ContactMission from "@/components/ContactMission";
 import Footer from "@/components/Footer";
 
 // Dynamic imports for improved performance
-const Agenda = dynamic(() => import("@/components/Agenda"), { ssr: true });
-const Testimonials = dynamic(() => import("@/components/Testimonials"), { ssr: true });
-const InstagramReels = dynamic(() => import("@/components/InstagramReels"), { ssr: true });
-const FAQ = dynamic(() => import("@/components/FAQ"), { ssr: true });
-const Services = dynamic(() => import("@/components/Services"), { ssr: true });
+const Agenda = dynamic(() => import("@/components/Agenda"), { ssr: false });
+const Testimonials = dynamic(() => import("@/components/Testimonials"), { ssr: false });
+const InstagramReels = dynamic(() => import("@/components/InstagramReels"), { ssr: false });
+const FAQ = dynamic(() => import("@/components/FAQ"), { ssr: false });
+const Services = dynamic(() => import("@/components/Services"), { ssr: false });
 
 export default function Home() {
   return (

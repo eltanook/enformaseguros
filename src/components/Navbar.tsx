@@ -78,6 +78,8 @@ const Navbar = () => {
             src={mounted && theme === "dark" ? logoVerde : logoAzul} 
             alt="Logotipo Oficial de En Forma Seguros - Consultoría Patrimonial" 
             className="h-10 md:h-12 w-auto object-contain" 
+            width={180}
+            height={48}
           />
         </motion.a>
 

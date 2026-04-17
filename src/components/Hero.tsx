@@ -159,11 +159,12 @@ const Hero = () => {
                 <Image 
                   src="/hero-image.png" 
                   alt="Asesoría financiera premium - En Forma Seguros" 
-                  width={600}
-                  height={700}
+                  width={550}
+                  height={534}
                   className="w-[450px] sm:w-[550px] lg:w-[600px] h-auto object-contain transform transition-transform duration-700 hover:scale-105 drop-shadow-2xl" 
                   priority
-                  sizes="(max-width: 768px) 450px, (max-width: 1024px) 550px, 600px"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 550px, 600px"
+                  quality={85}
                 />
               </motion.div>
               
