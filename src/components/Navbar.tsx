@@ -89,7 +89,7 @@ const Navbar = () => {
             className="h-10 md:h-12 w-auto object-contain" 
             width={180}
             height={48}
-            quality={75}
+            quality={50}
           />
         </motion.a>
 

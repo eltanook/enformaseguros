@@ -1,6 +1,6 @@
-> 0.5%
-last 2 versions
-Firefox ESR
+chrome >= 109
+safari >= 17
+edge >= 109
+firefox >= 109
 not dead
-not IE 11
 not op_mini all

@@ -196,7 +196,7 @@ const Testimonials = () => {
                       key={i}
                       onClick={() => emblaApi?.scrollTo(i)}
                       aria-label={`Ir al testimonio ${i + 1}`}
-                      className="py-6 group/dot"
+                      className="w-12 h-12 flex items-center justify-center group/dot"
                     >
                       <div className={`h-1.5 transition-all duration-300 rounded-full ${
                         selectedIndex === i ? "w-8 bg-primary" : "w-1.5 bg-primary/20"
