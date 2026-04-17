@@ -58,7 +58,7 @@ const Footer = () => {
             <ul className="space-y-4">
               {["Salud", "Retiro", "Vida & Patrimonio", "Gastos Médicos"].map((item) => (
                 <li key={item}>
-                  <a href="#servicios" className="text-slate-300 hover:text-primary transition-colors font-medium flex items-center justify-center md:justify-start group">
+                  <a href="#servicios" className="text-muted-foreground hover:text-primary transition-colors font-medium flex items-center justify-center md:justify-start group">
                     <span className="hidden md:block w-0 group-hover:w-4 transition-all duration-300 h-[2px] bg-primary mr-0 group-hover:mr-2" />
                     {item}
                   </a>
@@ -72,7 +72,7 @@ const Footer = () => {
             <ul className="space-y-4">
               {["Sobre Mí", "Agenda de Citas", "Contenido", "Contacto"].map((item) => (
                 <li key={item}>
-                  <a href={`#${item === "Agenda de Citas" ? "agenda" : item === "Sobre Mí" ? "sobremi" : item === "Contenido" ? "contenido" : "contacto"}`} className="text-slate-300 hover:text-primary transition-colors font-medium flex items-center justify-center md:justify-start group">
+                  <a href={`#${item === "Agenda de Citas" ? "agenda" : item === "Sobre Mí" ? "sobremi" : item === "Contenido" ? "contenido" : "contacto"}`} className="text-muted-foreground hover:text-primary transition-colors font-medium flex items-center justify-center md:justify-start group">
                     <span className="hidden md:block w-0 group-hover:w-4 transition-all duration-300 h-[2px] bg-primary mr-0 group-hover:mr-2" />
                     {item}
                   </a>
@@ -84,15 +84,15 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-bold text-lg mb-8 tracking-widest">Contacto</h4>
             <div className="space-y-4 mb-8 flex flex-col items-center md:items-start text-center md:text-left">
-              <a href="mailto:Ogui.magana@gmail.com" className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group">
+              <a href="mailto:Ogui.magana@gmail.com" className="flex items-center gap-3 text-muted-foreground hover:text-white transition-colors group">
                 <Mail className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
                 <span className="text-sm font-medium">Ogui.magana@gmail.com</span>
               </a>
-              <a href="https://wa.me/message/HG2NHDTSI3TJE1" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group">
+              <a href="https://wa.me/message/HG2NHDTSI3TJE1" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-white transition-colors group">
                 <FaWhatsapp className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
                 <span className="text-sm font-medium">+52 811 903 4948 (WhatsApp)</span>
               </a>
-              <div className="flex items-start gap-3 text-slate-300 group mt-2 pt-4 border-t border-white/5">
+              <div className="flex items-start gap-3 text-muted-foreground group mt-2 pt-4 border-t border-white/5">
                 <MapPin className="h-5 w-5 text-primary shrink-0 group-hover:scale-110 transition-transform" />
                 <span className="text-sm font-medium leading-relaxed max-w-[240px]">Av. Ricardo Margain Zozaya 555-Edificio B, Santa Engracia, 66279 San Pedro Garza García, N.L. México</span>
               </div>
@@ -104,11 +104,11 @@ const Footer = () => {
         </div>
 
         <div className="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-3 text-slate-300/60 text-sm font-medium">
+          <div className="flex items-center gap-3 text-muted-foreground/60 text-sm font-medium">
             <span>En Forma Seguros</span>
           </div>
           
-          <p className="text-xs text-slate-300/40 font-bold tracking-widest">
+          <p className="text-xs text-muted-foreground/40 font-bold tracking-widest">
             © 2026 En Forma Seguros. Todos los derechos reservados.
           </p>
           

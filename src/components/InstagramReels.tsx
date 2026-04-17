@@ -155,7 +155,6 @@ const InstagramReels = () => {
                     <button
                       key={i}
                       onClick={() => emblaApi?.scrollTo(i)}
-                      aria-label={`Ver reel ${i + 1}`}
                       className={`h-1.5 transition-all duration-300 rounded-full ${
                         selectedIndex === i ? "w-8 bg-primary" : "w-1.5 bg-primary/20"
                       }`}
@@ -165,14 +164,12 @@ const InstagramReels = () => {
                 <div className="flex gap-3">
                   <button 
                     onClick={scrollPrev}
-                    aria-label="Reel anterior"
                     className="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary/10 transition-colors"
                   >
                     <ChevronLeft className="h-5 w-5" />
                   </button>
                   <button 
                     onClick={scrollNext}
-                    aria-label="Siguiente reel"
                     className="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary/10 transition-colors"
                   >
                     <ChevronRight className="h-5 w-5" />
