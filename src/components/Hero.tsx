@@ -164,7 +164,7 @@ const Hero = () => {
                   className="w-[450px] sm:w-[550px] lg:w-[600px] h-auto object-contain transform transition-transform duration-700 hover:scale-105 drop-shadow-2xl" 
                   priority
                   fetchPriority="high"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 550px, 600px"
+                  sizes="(max-width: 768px) 80vw, (max-width: 1200px) 500px, 600px"
                   quality={85}
                 />
               </motion.div>

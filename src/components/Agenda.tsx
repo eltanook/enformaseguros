@@ -64,6 +64,7 @@ const Agenda = () => {
               frameBorder="0"
               title="Agendar Asesoría con Ogui Magaña"
               className="opacity-100 transition-opacity duration-300 relative z-10"
+              loading="lazy"
             />
           </div>
         </motion.div>
