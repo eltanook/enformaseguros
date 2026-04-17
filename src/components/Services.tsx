@@ -78,7 +78,8 @@ const Services = () => {
                     src={s.img} 
                     alt={`Servicio de ${s.title} - Asesoría por En Forma Seguros`} 
                     className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" 
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 365px"
+                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1200px) 33vw, 365px"
+                    quality={75}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1A1F2C] via-[#1A1F2C]/40 to-transparent mix-blend-multiply opacity-60 group-hover:opacity-40 transition-opacity" />
                   <div className="absolute inset-0 bg-gradient-to-tr from-[#006F4F]/40 to-transparent opacity-0 group-hover:opacity-60 transition-opacity" />

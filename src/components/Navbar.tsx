@@ -21,31 +21,40 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    const sectionIds = ["agenda", "clientes", "servicios", "contenido", "sobremi", "contacto"];
+    
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -70% 0px",
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(`#${entry.target.id}`);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sectionIds.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-
-      const sectionIds = ["agenda", "clientes", "servicios", "contenido", "sobremi", "contacto"];
-      let current = "";
-      for (const id of sectionIds) {
-        const element = document.getElementById(id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 200 && rect.bottom >= 200) {
-            current = `#${id}`;
-            break;
-          }
-        }
-      }
-      
-      if (window.scrollY < 100) current = "";
-      if (current !== activeSection) {
-        setActiveSection(current);
-      }
+      if (window.scrollY < 100) setActiveSection("");
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeSection]);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const links = [
     { label: "Agenda", href: "#agenda" },
@@ -80,6 +89,7 @@ const Navbar = () => {
             className="h-10 md:h-12 w-auto object-contain" 
             width={180}
             height={48}
+            quality={75}
           />
         </motion.a>
 

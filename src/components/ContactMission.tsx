@@ -61,6 +61,24 @@ const ContactFeature = ({ icon: Icon, label, value, href }: { icon: any, label: 
 const ContactMission = () => {
   const missionText = "En En Forma Seguros, nuestra misión es ayudarte a construir un bienestar integral que abarque tanto tu salud como tus finanzas. Al igual que en una rutina de ejercicio, creemos que la constancia y la planificación son esenciales para alcanzar tus metas de vida.";
 
+  const [isMapVisible, setIsMapVisible] = useState(false);
+  const mapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsMapVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px" }
+    );
+
+    if (mapRef.current) observer.observe(mapRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="contacto" className="py-24 bg-background relative overflow-hidden">
       {/* Background Image with Fixed Attachment */}
@@ -200,22 +218,30 @@ const ContactMission = () => {
 
             {/* Google Maps Integration */}
             <motion.div
+              ref={mapRef}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative h-[300px] w-full rounded-[2rem] overflow-hidden border border-border/50 shadow-premium"
+              className="relative h-[300px] w-full rounded-[2rem] overflow-hidden border border-border/50 shadow-premium flex items-center justify-center bg-muted/20"
             >
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.1666838323637!2d-100.3546765239578!3d25.649117677423985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bdd32598365f%3A0xc3f835f8d975871c!2sAv.%20Ricardo%20Marg%C3%A1in%20Zozaya%20555-Edificio%20B%2C%20Santa%20Engracia%2C%2066279%20San%20Pedro%20Garza%20Garc%C3%ADa%2C%20N.L.%2C%20Mexico!5e0!3m2!1sen!2sus!4v1712851200000!5m2!1sen!2sus"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Ubicación En Forma Seguros"
-                className="dark:invert dark:hue-rotate-180 dark:brightness-[0.85] dark:contrast-[1.2] transition-all duration-500"
-              ></iframe>
+              {isMapVisible ? (
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.1666838323637!2d-100.3546765239578!3d25.649117677423985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bdd32598365f%3A0xc3f835f8d975871c!2sAv.%20Ricardo%20Marg%C3%A1in%20Zozaya%20555-Edificio%20B%2C%20Santa%20Engracia%2C%2066279%20San%20Pedro%20Garza%20Garc%C3%ADa%2C%20N.L.%2C%20Mexico!5e0!3m2!1sen!2sus!4v1712851200000!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Ubicación En Forma Seguros"
+                  className="dark:invert dark:hue-rotate-180 dark:brightness-[0.85] dark:contrast-[1.2] transition-all duration-500"
+                ></iframe>
+              ) : (
+                <div className="flex flex-col items-center gap-3 text-muted-foreground/60">
+                  <div className="w-8 h-8 rounded-full border-2 border-primary/20 border-t-primary animate-spin" />
+                  <span className="text-xs font-bold uppercase tracking-widest">Cargando Mapa...</span>
+                </div>
+              )}
             </motion.div>
           </div>
         </div>

@@ -48,7 +48,7 @@ const Agenda = () => {
           alt="Abstract background"
           fill
           className="object-cover fixed"
-          quality={75}
+          quality={65}
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-background/30" />

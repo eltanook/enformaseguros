@@ -156,7 +156,7 @@ const InstagramReels = () => {
                       key={i}
                       onClick={() => emblaApi?.scrollTo(i)}
                       aria-label={`Ir al reel ${i + 1}`}
-                      className="py-4 group/dot"
+                      className="py-6 group/dot"
                     >
                       <div className={`h-1.5 transition-all duration-300 rounded-full ${
                         selectedIndex === i ? "w-8 bg-primary" : "w-1.5 bg-primary/20"

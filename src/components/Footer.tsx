@@ -28,7 +28,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="mb-8 flex flex-col items-center md:items-start"
             >
-              <Image src={logoVerde} alt="En Forma Seguros" className="h-12 w-auto object-contain mb-8" width={180} height={48} />
+              <Image src={logoVerde} alt="En Forma Seguros" className="h-12 w-auto object-contain mb-8" width={180} height={48} quality={75} />
               <p className="text-muted-foreground font-medium leading-relaxed max-w-xs">
                 Transformando la complejidad financiera en seguridad patrimonial. Consultoría experta con el respaldo de las mejores instituciones globales.
               </p>
