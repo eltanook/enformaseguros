@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ShieldCheck, TrendingUp, HeartHandshake, MoveRight, ChevronDown } from "lucide-react";
 import { motion, useScroll, useTransform, useInView, useSpring, useMotionValue } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import { Variants } from "framer-motion";
 import Image from "next/image";
 import premiumHero from "@/assets/premium_finance_hero_1775584913969.png";
 
@@ -42,7 +43,7 @@ const Hero = () => {
   const stickerY1 = useTransform(scrollYProgress, [0, 1], [0, -60]);
   const stickerY2 = useTransform(scrollYProgress, [0, 1], [0, 60]);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -53,7 +54,7 @@ const Hero = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
   };
@@ -162,6 +163,7 @@ const Hero = () => {
                   height={700}
                   className="w-[450px] sm:w-[550px] lg:w-[600px] h-auto object-contain transform transition-transform duration-700 hover:scale-105 drop-shadow-2xl" 
                   priority
+                  sizes="(max-width: 768px) 450px, (max-width: 1024px) 550px, 600px"
                 />
               </motion.div>
               

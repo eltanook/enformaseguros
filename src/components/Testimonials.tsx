@@ -85,6 +85,7 @@ const Row = ({ items, direction, x, isMobile, rowType }: { items: typeof testimo
               src={t.image} 
               alt={`Testimonio de ${t.name} - Cliente de En Forma Seguros`} 
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+              sizes="64px"
             />
           </div>
           <div className="flex flex-col">
@@ -174,7 +175,7 @@ const Testimonials = () => {
                         </p>
                         <div className="flex items-center gap-4">
                           <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20 shrink-0">
-                            <Image src={t.image} alt={t.name} className="object-cover fill" />
+                            <Image src={t.image} alt={t.name} className="object-cover fill" sizes="48px" />
                           </div>
                           <div>
                             <p className="font-bold text-primary text-xl tracking-tight">{t.name}</p>

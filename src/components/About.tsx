@@ -27,6 +27,7 @@ const About = () => {
                 src={oguiCoach} 
                 alt="Ogui Magaña - Coach Financiera" 
                 className="w-full h-full object-contain relative z-10 transition-transform duration-500 hover:scale-105" 
+                sizes="(max-width: 768px) 240px, (max-width: 1024px) 288px, 320px"
               />
               
               {/* MDRT Badge */}
@@ -39,6 +40,7 @@ const About = () => {
               src={logoVertical}
               alt="En Forma Seguros"
               className="absolute -bottom-6 -right-4 sm:right-0 md:-right-6 w-20 sm:w-24 h-auto drop-shadow-2xl z-20"
+              sizes="(max-width: 768px) 80px, 96px"
             />
           </div>
 

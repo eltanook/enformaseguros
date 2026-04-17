@@ -35,6 +35,7 @@ const ReelCard = ({ id, thumbnail, title, isMobile }: ReelCardProps) => {
               alt={`Miniatura del reel: ${title} - En Forma Seguros`}
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-105"
+              sizes="(max-width: 768px) 300px, 350px"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-colors" />
             

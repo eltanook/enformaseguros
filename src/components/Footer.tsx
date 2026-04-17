@@ -116,6 +116,7 @@ const Footer = () => {
             onClick={scrollToTop}
             whileHover={{ y: -5 }}
             className="hidden md:flex w-12 h-12 bg-white/5 rounded-full items-center justify-center border border-white/10 hover:bg-white/10 transition-all shadow-xl group"
+            aria-label="Volver arriba"
           >
             <ArrowUp className="h-5 w-5 text-primary group-hover:animate-bounce" />
           </motion.button>

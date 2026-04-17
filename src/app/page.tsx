@@ -1,13 +1,16 @@
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Testimonials from "@/components/Testimonials";
-import InstagramReels from "@/components/InstagramReels";
-import Services from "@/components/Services";
-import FAQ from "@/components/FAQ";
-import Agenda from "@/components/Agenda";
 import Speaker from "@/components/Speaker";
 import ContactMission from "@/components/ContactMission";
 import Footer from "@/components/Footer";
+
+// Dynamic imports for improved performance
+const Agenda = dynamic(() => import("@/components/Agenda"), { ssr: true });
+const Testimonials = dynamic(() => import("@/components/Testimonials"), { ssr: true });
+const InstagramReels = dynamic(() => import("@/components/InstagramReels"), { ssr: true });
+const FAQ = dynamic(() => import("@/components/FAQ"), { ssr: true });
+const Services = dynamic(() => import("@/components/Services"), { ssr: true });
 
 export default function Home() {
   return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import serviceWealth from "@/assets/service-wealth.png";
@@ -26,7 +26,7 @@ const services = [
 ];
 
 const Services = () => {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -36,7 +36,7 @@ const Services = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.23, 1, 0.32, 1] } },
   };
@@ -78,6 +78,7 @@ const Services = () => {
                     src={s.img} 
                     alt={`Servicio de ${s.title} - Asesoría por En Forma Seguros`} 
                     className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" 
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 365px"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1A1F2C] via-[#1A1F2C]/40 to-transparent mix-blend-multiply opacity-60 group-hover:opacity-40 transition-opacity" />
                   <div className="absolute inset-0 bg-gradient-to-tr from-[#006F4F]/40 to-transparent opacity-0 group-hover:opacity-60 transition-opacity" />
