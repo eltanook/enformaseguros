@@ -74,6 +74,10 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
         <link rel="preconnect" href="https://js.stripe.com" />
         <link rel="dns-prefetch" href="https://js.stripe.com" />
+        <link rel="preconnect" href="https://maps.googleapis.com" />
+        <link rel="dns-prefetch" href="https://maps.googleapis.com" />
+        <link rel="preconnect" href="https://maps.gstatic.com" />
+        <link rel="dns-prefetch" href="https://maps.gstatic.com" />
       </head>
       <body className={`${josefin.variable} ${archivo.variable} antialiased`}>
         <Providers>

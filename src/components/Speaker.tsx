@@ -27,9 +27,11 @@ const Speaker = () => {
               <Image 
                 src="/sobremi.jpg" 
                 alt="Ogui Magaña - Experta en Consultoría Patrimonial y Bienestar Financiero" 
-                width={500}
-                height={700}
+                width={380}
+                height={532}
                 className="w-full h-full object-cover transition-all duration-700 hover:scale-110 relative z-10" 
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 380px, 380px"
+                quality={75}
                 priority
               />
             </div>

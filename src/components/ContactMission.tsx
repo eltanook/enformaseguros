@@ -6,6 +6,7 @@ import { FaWhatsapp } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import Image from "next/image";
 import agendaBg from "@/assets/agenda-bg.png";
 
 const TypingText = ({ text, delay = 0.02 }: { text: string; delay?: number }) => {
@@ -63,10 +64,15 @@ const ContactMission = () => {
   return (
     <section id="contacto" className="py-24 bg-background relative overflow-hidden">
       {/* Background Image with Fixed Attachment */}
-      <div 
-        className="absolute inset-0 z-0 bg-fixed bg-cover bg-center opacity-20 dark:opacity-10"
-        style={{ backgroundImage: `url(${agendaBg.src})` }}
-      >
+      <div className="absolute inset-0 z-0 opacity-20 dark:opacity-10 overflow-hidden">
+        <Image 
+          src={agendaBg} 
+          alt="Abstract background"
+          fill
+          className="object-cover fixed"
+          quality={75}
+          sizes="100vw"
+        />
         <div className="absolute inset-0 bg-background/60" />
       </div>
       

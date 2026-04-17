@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import agendaBg from "@/assets/agenda-bg.png";
 import { useTheme } from "@/hooks/use-theme";
 
@@ -20,10 +21,15 @@ const Agenda = () => {
   return (
     <section id="agenda" className="relative py-32 overflow-hidden bg-background">
       {/* Background Image with Fixed Attachment */}
-      <div 
-        className="absolute inset-0 z-0 bg-fixed bg-cover bg-center opacity-20 dark:opacity-10"
-        style={{ backgroundImage: `url(${agendaBg.src})` }}
-      >
+      <div className="absolute inset-0 z-0 opacity-20 dark:opacity-10 overflow-hidden">
+        <Image 
+          src={agendaBg} 
+          alt="Abstract background"
+          fill
+          className="object-cover fixed"
+          quality={75}
+          sizes="100vw"
+        />
         <div className="absolute inset-0 bg-background/30" />
       </div>
 
