@@ -155,22 +155,27 @@ const InstagramReels = () => {
                     <button
                       key={i}
                       onClick={() => emblaApi?.scrollTo(i)}
-                      className={`h-1.5 transition-all duration-300 rounded-full ${
+                      aria-label={`Ir al reel ${i + 1}`}
+                      className="py-4 group/dot"
+                    >
+                      <div className={`h-1.5 transition-all duration-300 rounded-full ${
                         selectedIndex === i ? "w-8 bg-primary" : "w-1.5 bg-primary/20"
-                      }`}
-                    />
+                      } group-hover/dot:bg-primary/40`} />
+                    </button>
                   ))}
                 </div>
                 <div className="flex gap-3">
                   <button 
                     onClick={scrollPrev}
-                    className="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary/10 transition-colors"
+                    aria-label="Anterior reel"
+                    className="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary group-hover/carousel:bg-primary/10 transition-all hover:scale-110 active:scale-95"
                   >
                     <ChevronLeft className="h-5 w-5" />
                   </button>
                   <button 
                     onClick={scrollNext}
-                    className="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary/10 transition-colors"
+                    aria-label="Siguiente reel"
+                    className="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary group-hover/carousel:bg-primary/10 transition-all hover:scale-110 active:scale-95"
                   >
                     <ChevronRight className="h-5 w-5" />
                   </button>

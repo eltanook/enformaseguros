@@ -1,11 +1,32 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState, useEffect, useRef } from "react";
 import agendaBg from "@/assets/agenda-bg.png";
 import { useTheme } from "@/hooks/use-theme";
 
 const Agenda = () => {
   const { theme } = useTheme();
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   
   // Custom colors for Calendly theme matching
   // Background: #0a0e1a (dark) vs white (light)
@@ -56,15 +77,26 @@ const Agenda = () => {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-6xl mx-auto"
         >
-          <div className="w-full h-[750px] relative rounded-3xl overflow-hidden border border-border/50 bg-background/40 backdrop-blur-sm">
-            <iframe
-              src={calendlyUrl}
-              width="100%"
-              height="100%"
-              frameBorder="0"
-              title="Agendar Asesoría con Ogui Magaña"
-              className="opacity-100 transition-opacity duration-300 relative z-10"
-            />
+          <div 
+            ref={containerRef}
+            className="w-full h-[750px] relative rounded-3xl overflow-hidden border border-border/50 bg-background/40 backdrop-blur-sm flex items-center justify-center"
+          >
+            {!isVisible && (
+              <div className="flex flex-col items-center gap-4 text-muted-foreground">
+                <div className="w-12 h-12 rounded-full border-2 border-primary/20 border-t-primary animate-spin" />
+                <p className="text-sm font-medium">Cargando Agenda...</p>
+              </div>
+            )}
+            {isVisible && (
+              <iframe
+                src={calendlyUrl}
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                title="Agendar Asesoría con Ogui Magaña"
+                className="opacity-100 transition-opacity duration-300 relative z-10"
+              />
+            )}
           </div>
         </motion.div>
       </div>
